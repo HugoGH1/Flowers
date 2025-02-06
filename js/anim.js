@@ -1,8 +1,6 @@
-// Sincronizar las letras con la canción
 var audio = document.querySelector("audio");
 var lyrics = document.querySelector("#lyrics");
 
-// Array de objetos que contiene cada línea y su tiempo de aparición en segundos
 var lyricsData = [
   { text: "I want you to stay", time: 4 },
   { text: "'Til I'm in the grave", time: 8 },
@@ -44,23 +42,15 @@ var lyricsData = [
   { text: "I love you, don't act so surprised", time: 179 }
 ];
 
-// Animar las letras
 function updateLyrics() {
   var time = Math.floor(audio.currentTime);
   var currentLine = lyricsData.find(
     (line) => time >= line.time && time < line.time + 4);
 
   if (currentLine) {
-    // Calcula la opacidad basada en el tiempo en la línea actual
-    //var fadeInDuration = 0.1; // Duración del efecto de aparición en segundos
-    //var opacity = Math.min(1, (time - currentLine.time) / fadeInDuration);
-    // Aplica el efecto de aparición
     lyrics.style.opacity = 1;
     lyrics.innerHTML = currentLine.text;
-    var NextLine = getNextLine(currentLine);
-    console.log(NextLine);
   } else {
-    // Restablece la opacidad y el contenido si no hay una línea actual
     lyrics.style.opacity = 0;
     lyrics.innerHTML = "";
   }
@@ -76,7 +66,7 @@ function getNextLine(currentLine) {
   else 
     return null;
 }
-//funcion titulo
+
 function ocultarTitulo() {
   var titulo = document.querySelector(".titulo");
   titulo.style.animation =
@@ -86,5 +76,4 @@ function ocultarTitulo() {
   }, 3000);
 }
 
-// Llama a la función después de 216 segundos (216,000 milisegundos)
 setTimeout(ocultarTitulo, 216000);
