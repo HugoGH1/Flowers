@@ -1451,7 +1451,7 @@ body {
     filter: blur(1vmin);
   }
 }
-@-webkit-keyframes moving-flower-1 {
+@-webkit-keyframes moving-girasol {
   0%,
   100% {
     transform: rotate(2deg);
@@ -1460,7 +1460,7 @@ body {
     transform: rotate(-2deg);
   }
 }
-@keyframes moving-flower-1 {
+@keyframes moving-girasol {
   0%,
   100% {
     transform: rotate(2deg);
@@ -1656,4 +1656,96 @@ h1 {
   }
 }
 
+
+.girasol {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  animation: moving-girasool 7s infinite alternate;
+}
+
+@-webkit-keyframes moving-girasool {
+  0%,
+  100% {
+    transform: rotate(16deg);
+  }
+  50% {
+    transform: rotate(14deg);
+  }
+}
+@keyframes moving-girasool {
+  0%,
+  100% {
+    transform: rotate(16deg);
+  }
+  50% {
+    transform: rotate(14deg);
+  }
+}
+
+.centro {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-color: #8B4513;
+  border-radius: 50%;
+  top: -50vmin;
+  left: -17vmin;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.centro::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.petalo {
+  position: absolute;
+  width: 30px;
+  height: 80px;
+  background-color: #FFBF00;
+  border-radius: 50%;
+  top: -215%;
+  left: -80%;
+  transform-origin: top center;
+  /*animation: moving-petalos 7s infinite alternate;*/
+}
+
+@-webkit-keyframes moving-petalos {
+  0%,
+  100% {
+    transform: rotate(16deg);
+  }
+  50% {
+    transform: rotate(14deg);
+  }
+}
+@keyframes moving-petalos {
+  0%,
+  100% {
+    transform: rotate(16deg);
+  }
+  50% {
+    transform: rotate(14deg);
+  }
+}
+
+.petalo:nth-child(2) { transform: translate(-50%, -50%) rotate(30deg); }
+.petalo:nth-child(3) { transform: translate(-50%, -50%) rotate(60deg); }
+.petalo:nth-child(4) { transform: translate(-50%, -50%) rotate(90deg); }
+.petalo:nth-child(5) { transform: translate(-50%, -50%) rotate(120deg); }
+.petalo:nth-child(6) { transform: translate(-50%, -50%) rotate(150deg); }
+.petalo:nth-child(7) { transform: translate(-50%, -50%) rotate(180deg); }
+.petalo:nth-child(8) { transform: translate(-50%, -50%) rotate(210deg); }
+.petalo:nth-child(9) { transform: translate(-50%, -50%) rotate(240deg); }
+.petalo:nth-child(10) { transform: translate(-50%, -50%) rotate(270deg); }
+.petalo:nth-child(11) { transform: translate(-50%, -50%) rotate(300deg); }
+.petalo:nth-child(12) { transform: translate(-50%, -50%) rotate(330deg); } 
 /* Agregar más estilos según sea necesario */
