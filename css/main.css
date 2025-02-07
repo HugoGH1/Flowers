@@ -39,6 +39,43 @@ body {
   }
 
 }
+
+@media only screen and (max-width: 1024px) {
+  body {
+    font-size: 16px; /* Ajusta el tamaño de fuente base */
+  }
+
+  #lyrics {
+    font-size: 24px; /* Ajusta el tamaño de fuente de las letras */
+    margin-bottom: 15%; /* Ajusta el margen inferior */
+  }
+
+  .titulo {
+    font-size: 1.8em; /* Ajusta el tamaño de fuente del título */
+    text-align: center;
+    margin: 15px 0;
+  }
+
+  .flowers {
+    flex-direction: column; /* Cambia la dirección del flexbox a columna */
+    align-items: center;
+  }
+
+  .flower {
+    width: 25vmin; /* Ajusta el tamaño de las flores */
+    height: 25vmin;
+  }
+
+  .centro {
+    width: 50px; /* Ajusta el tamaño del centro de las flores */
+    height: 50px;
+  }
+
+  .petalo {
+    width: 30px; /* Ajusta el tamaño de los pétalos */
+    height: 80px;
+  }
+}
 .titulo {
   margin-bottom: 180px;
   font-family: "Arial Narrow", Arial, sans-serif;
@@ -127,36 +164,41 @@ body {
   z-index: 10;
   --fl-speed: 0.8s;
 }
-.flower--1 {
+.girasol {
   -webkit-animation: moving-flower-1 4s linear infinite;
   animation: moving-flower-1 4s linear infinite;
 }
-.flower--1 .flower__line {
+.girasol .flower__line {
   height: 70vmin;
   -webkit-animation-delay: 0.3s;
   animation-delay: 0.3s;
+  top: -260%;
+  left: -40%;
+  position: relative;
+  transform: rotate(-20deg);
+  z-index: -1;
 }
-.flower--1 .flower__line__leaf--1 {
+.girasol .flower__line__leaf--1 {
   -webkit-animation: blooming-leaf-right var(--fl-speed) 1.6s backwards;
   animation: blooming-leaf-right var(--fl-speed) 1.6s backwards;
 }
-.flower--1 .flower__line__leaf--2 {
+.girasol .flower__line__leaf--2 {
   -webkit-animation: blooming-leaf-right var(--fl-speed) 1.4s backwards;
   animation: blooming-leaf-right var(--fl-speed) 1.4s backwards;
 }
-.flower--1 .flower__line__leaf--3 {
+.girasol .flower__line__leaf--3 {
   -webkit-animation: blooming-leaf-left var(--fl-speed) 1.2s backwards;
   animation: blooming-leaf-left var(--fl-speed) 1.2s backwards;
 }
-.flower--1 .flower__line__leaf--4 {
+.girasol .flower__line__leaf--4 {
   -webkit-animation: blooming-leaf-left var(--fl-speed) 1s backwards;
   animation: blooming-leaf-left var(--fl-speed) 1s backwards;
 }
-.flower--1 .flower__line__leaf--5 {
+.girasol .flower__line__leaf--5 {
   -webkit-animation: blooming-leaf-right var(--fl-speed) 1.8s backwards;
   animation: blooming-leaf-right var(--fl-speed) 1.8s backwards;
 }
-.flower--1 .flower__line__leaf--6 {
+.girasol .flower__line__leaf--6 {
   -webkit-animation: blooming-leaf-left var(--fl-speed) 2s backwards;
   animation: blooming-leaf-left var(--fl-speed) 2s backwards;
 }
@@ -1660,8 +1702,22 @@ h1 {
 .girasol {
   position: absolute;
   width: 150px;
+  bottom: 10vmin;
+  transform-origin: bottom center;
+  z-index: 10;
+  --sfl-speed: 1s;
+  animation: emergeFromBottom var(--fl-speed) linear backwards;
   height: 150px;
   animation: moving-girasool 7s infinite alternate;
+}
+
+@keyframes emergeFromBottom {
+  0% {
+    transform: translateY(200%); /* Comienza fuera de la pantalla */
+  }
+  100% {
+    transform: translateY(0); /* Termina en su posición original */
+  }
 }
 
 @-webkit-keyframes moving-girasool {
@@ -1704,6 +1760,7 @@ h1 {
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  animation: emergeFromBottom var(--fl-speed) ease-out;
 }
 
 .petalo {
@@ -1715,7 +1772,7 @@ h1 {
   top: -215%;
   left: -80%;
   transform-origin: top center;
-  /*animation: moving-petalos 7s infinite alternate;*/
+  animation: emergeFromBottom var(--fl-speed) ease-out;
 }
 
 @-webkit-keyframes moving-petalos {
@@ -1748,4 +1805,3 @@ h1 {
 .petalo:nth-child(10) { transform: translate(-50%, -50%) rotate(270deg); }
 .petalo:nth-child(11) { transform: translate(-50%, -50%) rotate(300deg); }
 .petalo:nth-child(12) { transform: translate(-50%, -50%) rotate(330deg); } 
-/* Agregar más estilos según sea necesario */
